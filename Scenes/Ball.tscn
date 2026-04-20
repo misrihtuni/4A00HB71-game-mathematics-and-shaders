@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://v4yuxhbdow8v"]
+
+[ext_resource type="Script" uid="uid://du2vmupjddkp0" path="res://Code/Ball.cs" id="1_7nh6h"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_sfrck"]
+
+[node name="Ball" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_sfrck")
+script = ExtResource("1_7nh6h")
+_initialDirection = Vector3(1, 0, 0)
