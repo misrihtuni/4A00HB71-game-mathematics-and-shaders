@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvkvm2yaikjlw"]
+
+[ext_resource type="Script" uid="uid://bimhh0a8dylys" path="res://ThinWalls/ThinWalls.cs" id="1_lconm"]
+[ext_resource type="Script" uid="uid://c8gxc8mkklcs6" path="res://Camera.cs" id="2_pa8tq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sfrck"]
+size = Vector2(10, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0ba56"]
+size = Vector2(4, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vsvp5"]
+size = Vector2(4, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8rbpu"]
+size = Vector2(4, 10)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sfrck"]
+
+[node name="Level" type="Node3D" node_paths=PackedStringArray("_walls", "_ball", "_camera", "_initialBallPosition", "_initialCameraPosition")]
+script = ExtResource("1_lconm")
+_walls = [NodePath("Walls/Floor"), NodePath("Walls/Ceiling"), NodePath("Walls/Left"), NodePath("Walls/Right"), NodePath("Walls/Back"), NodePath("Walls/Front")]
+_ball = NodePath("Ball")
+_ballSpeed = 0.0
+_ballRadius = 2.0
+_updateInterval = 1.0
+_camera = NodePath("Camera")
+_initialBallPosition = NodePath("InitialBallPosition")
+_initialCameraPosition = NodePath("InitialCameraPosition")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660255, -0.43301272, 0.24999994, 0, 0.4999999, 0.8660255, -0.5000001, -0.75000006, 0.4330127, 0, 6, 0)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 7)
+script = ExtResource("2_pa8tq")
+
+[node name="InitialCameraPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 7)
+
+[node name="InitialBallPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3)
+
+[node name="Floor" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 3)
+mesh = SubResource("PlaneMesh_sfrck")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 5, 4, 3)
+mesh = SubResource("PlaneMesh_sfrck")
+
+[node name="Left" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 2, 3)
+mesh = SubResource("PlaneMesh_0ba56")
+
+[node name="Right" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 10, 2, 3)
+mesh = SubResource("PlaneMesh_vsvp5")
+
+[node name="Back" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, 5, 2, 0)
+mesh = SubResource("PlaneMesh_8rbpu")
+
+[node name="Front" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1.9106857e-15, 1.3113416e-07, 1, -1, 4.371139e-08, -3.821371e-15, -4.371139e-08, -1, 1.3113416e-07, 4.9999995, 1.9999998, 6)
+mesh = SubResource("PlaneMesh_8rbpu")
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("SphereMesh_sfrck")
