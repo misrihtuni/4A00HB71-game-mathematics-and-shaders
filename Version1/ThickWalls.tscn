@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctixnw7qcpfnj"]
 
-[ext_resource type="Script" uid="uid://bgxti7qdudq6w" path="res://ThickWalls/ThickWalls.cs" id="1_03d8s"]
+[ext_resource type="Script" uid="uid://bgxti7qdudq6w" path="res://Version1/ThickWalls.cs" id="1_03d8s"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_r150o"]
 

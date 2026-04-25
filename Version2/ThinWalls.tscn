@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvkvm2yaikjlw"]
 
-[ext_resource type="Script" uid="uid://bimhh0a8dylys" path="res://ThinWalls/ThinWalls.cs" id="1_lconm"]
+[ext_resource type="Script" uid="uid://bimhh0a8dylys" path="res://Version2/ThinWalls.cs" id="1_lconm"]
 [ext_resource type="Script" uid="uid://c8gxc8mkklcs6" path="res://Camera.cs" id="2_pa8tq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_sfrck"]

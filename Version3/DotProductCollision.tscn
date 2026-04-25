@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ybh5j1va01a6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1wcv2"]
+size = Vector2(8, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mpujb"]
+size = Vector2(8, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sc7yf"]
+size = Vector2(4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8mp4g"]
+size = Vector2(4, 4)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1wcv2"]
+
+[node name="DotProductCollision" type="Node3D"]
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Walls"]
+mesh = SubResource("PlaneMesh_1wcv2")
+
+[node name="Back" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, -2)
+mesh = SubResource("PlaneMesh_mpujb")
+
+[node name="Left" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 0, 0, 1, -4, 2, 0)
+mesh = SubResource("PlaneMesh_sc7yf")
+
+[node name="Right" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 4, 2, 0)
+mesh = SubResource("PlaneMesh_8mp4g")
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("SphereMesh_1wcv2")
+skeleton = NodePath("")
