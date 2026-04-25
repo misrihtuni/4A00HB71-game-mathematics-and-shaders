@@ -33,17 +33,17 @@ size = Vector2(4, 4)
 transform = Transform3D(0.8660254, -0.4330128, 0.24999999, 0, 0.4999999, 0.8660255, -0.50000006, -0.75, 0.43301263, 0, 6, 0)
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 7)
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 2)
 script = ExtResource("1_sc7yf")
 
 [node name="InitialCameraPosition" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 7)
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 2)
 
 [node name="InitialBallPosition" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
 
 [node name="Walls" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, -5)
 
 [node name="Floor" type="MeshInstance3D" parent="Walls"]
 mesh = SubResource("PlaneMesh_1wcv2")
@@ -62,7 +62,7 @@ transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-
 mesh = SubResource("PlaneMesh_8mp4g")
 
 [node name="Ball" type="MeshInstance3D" parent="." node_paths=PackedStringArray("_walls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
 mesh = SubResource("SphereMesh_1wcv2")
 skeleton = NodePath("")
 script = ExtResource("1_mpujb")
@@ -70,7 +70,7 @@ _walls = [NodePath("../Walls/Right"), NodePath("../Walls/Left"), NodePath("../Wa
 _speed = 2.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.8660254, 0.4330127, -0.24999999, 0, 0.49999997, 0.8660254, 0.5, -0.75, 0.43301266, 2, 4, 1)
+transform = Transform3D(0.8660254, 0.4330127, -0.24999999, 0, 0.49999997, 0.8660254, 0.5, -0.75, 0.43301266, 2, 4, -4)
 light_color = Color(0, 0, 1, 1)
 light_size = 10.0
 shadow_enabled = true
@@ -78,11 +78,11 @@ distance_fade_enabled = true
 spot_range = 9.077394
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.8660254, -0.4330127, 0.24999999, 0, 0.49999997, 0.8660254, -0.5, -0.75, 0.43301266, -2, 4, 1)
+transform = Transform3D(0.8660254, -0.4330127, 0.24999999, 0, 0.49999997, 0.8660254, -0.5, -0.75, 0.43301266, -2, 4, -4)
 light_color = Color(1, 0, 0, 1)
 shadow_enabled = true
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, 0, 4, 1)
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, 0, 4, -4)
 light_color = Color(0, 1, 0, 1)
 shadow_enabled = true
