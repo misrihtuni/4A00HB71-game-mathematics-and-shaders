@@ -26,6 +26,16 @@ namespace MathAndShaders
             Vector3 currentPosition = GlobalPosition;
             Vector3 newPosition = currentPosition + _direction * _speed * (float)delta;
 
+            if (ShouldBounce())
+            {
+                _direction *= -1;
+            }
+
+            GlobalPosition = newPosition;
+        }
+
+        private bool ShouldBounce()
+        {
             foreach (MeshInstance3D wall in _walls)
             {
                 // Let's assume the following:
@@ -69,13 +79,11 @@ namespace MathAndShaders
 
                 if (movingTowardsWall && isBehindWall)
                 {
-                    GD.Print($"Ball collided with {wall.Name} wall.");
-                    _direction *= -1;
-                    break;
+                    return true;
                 }
             }
 
-            GlobalPosition = newPosition;
+            return false;
         }
     }
 }
