@@ -31,7 +31,21 @@ namespace MathAndShaders
                 _direction *= -1;
             }
 
+            newPosition.Y = CalculateVerticalPosition(GlobalPosition.X, _radius);
+
             GlobalPosition = newPosition;
+        }
+
+        private float CalculateVerticalPosition(float x, float radius = 0)
+        {
+            // The formula is this: f(x) = |A * sin(k * x)|.
+            // A: This is 2 because it multiplies the amplitude so that the max
+            //    height for the bounce is 2 unit.
+            // k: This is pi/8 because of math. It's too long to explain in
+            //    detail here, but it's basically the result of solving the
+            //    following equations for k: f(-4) = 2, f(0) = 0, f(4) = 2.
+            //    The -4 and 4 are the x-coordinates of the walls.
+            return Mathf.Abs(2 * Mathf.Sin(Mathf.Pi / 8 * x)) + radius;
         }
 
         private bool ShouldBounce()
