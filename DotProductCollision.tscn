@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ybh5j1va01a6"]
 
-[ext_resource type="Script" uid="uid://b28adcbj5g8cf" path="res://Version3/DotProductCollision.cs" id="1_mpujb"]
+[ext_resource type="Script" uid="uid://b28adcbj5g8cf" path="res://DotProductCollision.cs" id="1_mpujb"]
 [ext_resource type="Script" uid="uid://c8gxc8mkklcs6" path="res://Camera.cs" id="1_sc7yf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1wcv2"]
