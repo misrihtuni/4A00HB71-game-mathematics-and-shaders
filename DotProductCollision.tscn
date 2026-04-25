@@ -1,18 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ybh5j1va01a6"]
+[gd_scene load_steps=8 format=3 uid="uid://ybh5j1va01a6"]
 
 [ext_resource type="Script" uid="uid://b28adcbj5g8cf" path="res://DotProductCollision.cs" id="1_mpujb"]
 [ext_resource type="Script" uid="uid://c8gxc8mkklcs6" path="res://Camera.cs" id="1_sc7yf"]
-[ext_resource type="Shader" uid="uid://bsvv08koqmu7b" path="res://shader/waves.gdshader" id="2_wkp36"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1wcv2"]
 size = Vector2(8, 4)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qvpbg"]
-render_priority = 0
-shader = ExtResource("2_wkp36")
-shader_parameter/wave_height = 0.2
-shader_parameter/wave_speed = 2.0
-shader_parameter/wave_freq = 4.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mpujb"]
 size = Vector2(8, 4)
@@ -50,7 +42,6 @@ mesh = SubResource("PlaneMesh_1wcv2")
 
 [node name="Back" type="MeshInstance3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, -2)
-material_override = SubResource("ShaderMaterial_qvpbg")
 mesh = SubResource("PlaneMesh_mpujb")
 
 [node name="Left" type="MeshInstance3D" parent="Walls"]
