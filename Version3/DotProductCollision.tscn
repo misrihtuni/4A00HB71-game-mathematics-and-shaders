@@ -1,4 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ybh5j1va01a6"]
+[gd_scene load_steps=8 format=3 uid="uid://ybh5j1va01a6"]
+
+[ext_resource type="Script" uid="uid://b28adcbj5g8cf" path="res://Version3/DotProductCollision.cs" id="1_mpujb"]
+[ext_resource type="Script" uid="uid://c8gxc8mkklcs6" path="res://Camera.cs" id="1_sc7yf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1wcv2"]
 size = Vector2(8, 4)
@@ -16,7 +19,22 @@ size = Vector2(4, 4)
 
 [node name="DotProductCollision" type="Node3D"]
 
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8660254, -0.4330128, 0.24999999, 0, 0.4999999, 0.8660255, -0.50000006, -0.75, 0.43301263, 0, 6, 0)
+visible = false
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 7)
+script = ExtResource("1_sc7yf")
+
+[node name="InitialCameraPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 7)
+
+[node name="InitialBallPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
 [node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Floor" type="MeshInstance3D" parent="Walls"]
 mesh = SubResource("PlaneMesh_1wcv2")
@@ -30,10 +48,31 @@ transform = Transform3D(1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, 0, 0, 1, -4, 
 mesh = SubResource("PlaneMesh_sc7yf")
 
 [node name="Right" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 4, 2, 0)
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 4, 2, 0)
 mesh = SubResource("PlaneMesh_8mp4g")
 
-[node name="Ball" type="MeshInstance3D" parent="."]
+[node name="Ball" type="MeshInstance3D" parent="." node_paths=PackedStringArray("_walls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("SphereMesh_1wcv2")
 skeleton = NodePath("")
+script = ExtResource("1_mpujb")
+_walls = [NodePath("../Walls/Right"), NodePath("../Walls/Left"), NodePath("../Walls/Floor"), NodePath("../Walls/Back")]
+_speed = 2.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.8660254, 0.4330127, -0.24999999, 0, 0.49999997, 0.8660254, 0.5, -0.75, 0.43301266, 2, 4, 1)
+light_color = Color(0, 0, 1, 1)
+light_size = 10.0
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 9.077394
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.8660254, -0.4330127, 0.24999999, 0, 0.49999997, 0.8660254, -0.5, -0.75, 0.43301266, -2, 4, 1)
+light_color = Color(1, 0, 0, 1)
+shadow_enabled = true
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, 0, 4, 1)
+light_color = Color(0, 1, 0, 1)
+shadow_enabled = true

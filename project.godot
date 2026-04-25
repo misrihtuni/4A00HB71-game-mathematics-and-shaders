@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Math and Shaders"
-run/main_scene="uid://cvkvm2yaikjlw"
+run/main_scene="uid://ybh5j1va01a6"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
